@@ -9,12 +9,3 @@ App.js routers for the pop up menu bar in nav bar:
       </Routes>
     </Router>
 
-                            <div className={classes.popupMenu}>
-                            <Button onClick={PopUp()} className={classes.popup_button}>NFT</Button>
-                            <Link href="/create-NFT">
-                                Create NFT
-                            </Link>
-                            <Link href="/marketplace">
-                                Marketplace
-                            </Link>
-                        </div>

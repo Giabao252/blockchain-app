@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from "react";
-import Cryptonite from "../../Cryptonite.png"
+import Cryptonite from "../../../assets/Cryptonite.png"
 import {AppBar, Toolbar, Button, Container, Menu, MenuItem } from "@material-ui/core"
 import Link from "@material-ui/core/Link";
 import useStyles from "./styles"
-import { Navigate } from "react-router-dom";
 
 const TopNav = () => {
     const classes = useStyles();
@@ -19,10 +18,12 @@ const TopNav = () => {
     };
 
     return (
-        <AppBar className={classes.navbar} position="static" >
+        <AppBar className={classes.navbar} position="static" maxWidth="xl" >
             <Container maxWidth="xl"> 
                 <Toolbar>
-                    <img src={Cryptonite} className={classes.image} alt="HomeLogo" />
+                    <Link href="/">
+                        <img src={Cryptonite} className={classes.image} alt="HomeLogo" />
+                    </Link>
 
                     <div className="nav_wrapper">
                         <Link href="/about" className={classes.links}>
