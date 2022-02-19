@@ -2,13 +2,20 @@ import { Container, Typography, Grid, Button } from "@material-ui/core";
 import React from "react";
 import { TopNav, Footer } from "../../components";
 import useStyles from "./styles";
-import Link from "@material-ui/core/Link";
+import { Link } from "react-router-dom";         
+     
 
 import Metamask from "../../../assets/metamask.png"
 import { Payment } from "@material-ui/icons";
+import { LocalGroceryStoreOutlined } from "@material-ui/icons";
+import { RestoreOutlined } from "@material-ui/icons";
 
 const Home = () => {
     const classes = useStyles();
+
+    const connectWallet = () => {
+
+    }
 
     return (
         <Container maxWidth="xl">
@@ -18,7 +25,12 @@ const Home = () => {
                     <div className={classes.welcome}>
                         <Typography variant="h3" className={classes.introPara}>Ethereum anywhere, for anyone</Typography>
                         <Typography variant="subtitle1" className={classes.subPara}>Explore the evergrowing world of Ethereum and NFTs with Cryptonite</Typography>
-                        <Button className={classes.connectButton}> Connect to Metamask</Button>
+
+                        <Button
+                        onClick={connectWallet}
+                        className={classes.connectButton}>
+                             Connect to Metamask
+                        </Button>
                     </div>
             </Grid>
 
@@ -36,7 +48,6 @@ const Home = () => {
                             <li><Typography style={{fontFamily: "'Work Sans', sans-serif"}}>Step 3: Go to <Link to="https://faucet.dimensions.network" className={classes.link}>Ropsten Network Faucet</Link> to get yourself free test ETH (test networks can be unstable, so just be patient a bit)</Typography></li>
                             <li><Typography style={{fontFamily: "'Work Sans', sans-serif"}}>Step 4: Reload website, click Connect MetaMask and enjoy</Typography></li>
                         </ul>
-                    
                 </Grid>
                 <Grid item xs={3}>
                     <img src={Metamask} className={classes.logo} alt="MetamaskLogo" />
@@ -46,7 +57,7 @@ const Home = () => {
             <Grid className={classes.features}>
                 <Typography variant="h4" style={{fontFamily: "'Merriweather', serif"}}>Features</Typography>
                 
-                <Grid container style={{marginTop: "3%"}} >
+                <Grid container style={{marginTop: "3%", marginBottom: "10%"}} >
                     <Grid item xs={3} className={classes.box}>
                         <Payment />
                         <Typography variant="h6">ETH Transactions</Typography>
@@ -55,10 +66,18 @@ const Home = () => {
                         </Typography>
                     </Grid>
                     <Grid item xs={3} className={classes.box}>
-                    <Typography variant="h6">NFT marketplace</Typography>
-                        <Typography variant="subtitle1" style={{fontFamily: "'Work Sans', sans-serif"}}>
-                            Create your own NFTs, sell on our marketplace, or buy with ETH
-                        </Typography>
+                        <LocalGroceryStoreOutlined />
+                        <Typography variant="h6">NFT marketplace</Typography>
+                            <Typography variant="subtitle1" style={{fontFamily: "'Work Sans', sans-serif"}}>
+                                Create your own NFTs, sell on our marketplace, or buy with ETH
+                            </Typography>
+                    </Grid>
+                    <Grid item xs={3} className={classes.box}>
+                        <RestoreOutlined />
+                        <Typography variant="h6">Transaction history</Typography>
+                            <Typography variant="subtitle1" style={{fontFamily: "'Work Sans', sans-serif"}}>
+                                See all transactions made across the platform 
+                            </Typography>
                     </Grid>
                 </Grid>
             </Grid>

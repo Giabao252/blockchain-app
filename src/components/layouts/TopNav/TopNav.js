@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
 import Cryptonite from "../../../assets/Cryptonite.png"
 import {AppBar, Toolbar, Button, Container, Menu, MenuItem } from "@material-ui/core"
-import Link from "@material-ui/core/Link";
+import { Link } from "react-router-dom";
+
 import useStyles from "./styles"
 
 const TopNav = () => {
@@ -21,16 +22,16 @@ const TopNav = () => {
         <AppBar className={classes.navbar} position="static" maxWidth="xl" >
             <Container maxWidth="xl"> 
                 <Toolbar>
-                    <Link href="/">
+                    <Link to="/">
                         <img src={Cryptonite} className={classes.image} alt="HomeLogo" />
                     </Link>
 
                     <div className="nav_wrapper">
-                        <Link href="/about" className={classes.links}>
+                        <Link to="/about" className={classes.links}>
                             About
                         </Link>
 
-                        <Link href="/transaction" className={classes.links}>
+                        <Link to="/transaction" className={classes.links}>
                             Transaction
                         </Link>
                         <Button 
@@ -49,16 +50,16 @@ const TopNav = () => {
                         MenuListProps={{
                         'aria-labelledby': 'basic-button',
                         }}>
-                            <MenuItem className={classes.NFT} onClick={event => window.location.href="/create-nft"} >
+                            <MenuItem className={classes.NFT} component={Link} to="/create-NFT" >
                                 Create NFT
                             </MenuItem>
-                            <MenuItem className={classes.NFT} onClick={event => window.location.href="/marketplace"} >
+                            <MenuItem className={classes.NFT} component={Link} to="/marketplace" >
                                 Marketplace
                             </MenuItem>
                         </Menu>
 
                         <div className={classes.loginButton}>
-                            <Button className={classes.button}  >Login</Button>
+                            <Button className={classes.button} component={Link} to="/login">Login</Button>
                         </div>
                     </div>
                 </Toolbar>

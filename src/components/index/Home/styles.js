@@ -6,6 +6,9 @@ export default makeStyles((theme) => ({
         fontFamily: "'Merriweather', serif",
         textDecorationColor: "gradient"
     },
+    welcome: {
+        textAlign: "center"
+    },
     subPara: {
         marginTop: "3%",
         fontFamily: "'Work Sans', sans-serif"

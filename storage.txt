@@ -1,11 +1,3 @@
-App.js routers for the pop up menu bar in nav bar: 
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/faq" component={Faq} />
-      </Routes>
-    </Router>
+background-color: #FF3CAC;
+background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
 

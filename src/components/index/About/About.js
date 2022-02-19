@@ -1,7 +1,7 @@
 import React from "react";
 import useStyles from './styles';
 import { TopNav, Footer } from "../../components";
-import {Container, Typography, Grid, AppBar, } from '@material-ui/core';
+import {Container, Typography} from '@material-ui/core';
 
 import Me from "../../../assets/Myself.jpg";
 

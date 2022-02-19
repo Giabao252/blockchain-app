@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Typography } from "@material-ui/core";
 import Cryptonite from "../../../assets/Cryptonite.png";
 import useStyles from "./styles";
-import Link from "@material-ui/core/Link";
+import { Link } from "@material-ui/core";
 import { Facebook, LinkedIn, Mail, GitHub, Instagram } from "@material-ui/icons";
 
 
