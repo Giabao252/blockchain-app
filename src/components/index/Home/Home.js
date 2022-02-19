@@ -2,7 +2,8 @@ import { Container, Typography, Grid, Button } from "@material-ui/core";
 import React from "react";
 import { TopNav, Footer } from "../../components";
 import useStyles from "./styles";
-import { Link } from "react-router-dom";         
+import { Link } from "@material-ui/core";
+
      
 
 import Metamask from "../../../assets/metamask.png"
@@ -14,7 +15,7 @@ const Home = () => {
     const classes = useStyles();
 
     const connectWallet = () => {
-
+        
     }
 
     return (
@@ -43,9 +44,9 @@ const Home = () => {
                         </Typography>
                     </div>
                         <ul className={classes.guide}>
-                            <li><Typography style={{fontFamily: "'Work Sans', sans-serif"}}>Step 1: Click <Link to="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en" className={classes.link}>here</Link> to install MetaMask on your device, then pin it on the extensions bar</Typography></li>
+                            <li><Typography style={{fontFamily: "'Work Sans', sans-serif"}}>Step 1: Click <Link href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en" className={classes.link}>here</Link> to install MetaMask on your device, then pin it on the extensions bar</Typography></li>
                             <li><Typography style={{fontFamily: "'Work Sans', sans-serif"}}>Step 2: Create your account and change the network to Ropsten (default is Mainnet)</Typography></li>
-                            <li><Typography style={{fontFamily: "'Work Sans', sans-serif"}}>Step 3: Go to <Link to="https://faucet.dimensions.network" className={classes.link}>Ropsten Network Faucet</Link> to get yourself free test ETH (test networks can be unstable, so just be patient a bit)</Typography></li>
+                            <li><Typography style={{fontFamily: "'Work Sans', sans-serif"}}>Step 3: Go to <Link href="https://faucet.egorfine.com" className={classes.link}>Ropsten Network Faucet</Link> to get yourself free test ETH (test networks can be unstable, so just be patient a bit)</Typography></li>
                             <li><Typography style={{fontFamily: "'Work Sans', sans-serif"}}>Step 4: Reload website, click Connect MetaMask and enjoy</Typography></li>
                         </ul>
                 </Grid>

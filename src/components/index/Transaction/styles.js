@@ -28,7 +28,17 @@ export default makeStyles((theme) => ({
         border: "2px solid rgba(255, 255, 255, 0.1)",
         boxShadow: "0 0 80px rgba(0, 0, 0, 0.2)",
         overflow: "hidden"
-        
+    },
+    sendTransaction: {
+        marginTop: "5%",
+        color: "black",
+        backgroundColor: "orange",
+        justifySelf: "center",
+        width: 320,
+        borderRadius: "25px",
+        "&:hover": {
+            backgroundColor: "gold"
+        }
     }
 
 }))

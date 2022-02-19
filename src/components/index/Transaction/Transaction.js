@@ -12,6 +12,16 @@ import useStyles from "./styles";
 const Transaction = () => {
     const classes = useStyles();
     /*
+    const TextField = ({label, name, type, value, handle}) => {
+        <TextField 
+        label={label}
+        type={type}
+        step="0.0001"
+        value={value}
+        onHandle={(event) => handle(event, name)}
+        />
+    }
+    /*
     const Status = () => {
         const {currentAccount, connectWallet, handleChange, sendTransaction, formData, isLoading} = useContext(TransactionContext);
     }
@@ -28,7 +38,7 @@ const Transaction = () => {
                         </CardContent>
                         <CardContent>
                             <Typography variant="h7">
-                                shortenAddress
+                                shortenedAddress
                             </Typography>
                         </CardContent> 
                         <CardContent>
@@ -37,12 +47,12 @@ const Transaction = () => {
                     </Card>
                 </Grid>
                 <form className={classes.formWrapper}>
-                    <TextField className={classes.fill} label="Address To" variant="standard" />
-                    <TextField className={classes.fill} label="Amount (ETH)" variant="standard" />
-                    <TextField className={classes.fill} label="Transaction Title" variant="standard" />
-                    <TextField className={classes.fill} label="Message to Receiver" variant="standard" />
-                    <Button>
-
+                    <TextField className={classes.fill} label="Address To" name="addressTo" type="text" variant="standard" />
+                    <TextField className={classes.fill} label="Amount (ETH)" name="amount" type="number" variant="standard" />
+                    <TextField className={classes.fill} label="Transaction Title" name="title" type="text" variant="standard" />
+                    <TextField className={classes.fill} label="Message to Receiver" name="message" type="text" variant="standard" />
+                    <Button className={classes.sendTransaction} >
+                        Send ETH
                     </Button>
                 </form>
             </Grid>
