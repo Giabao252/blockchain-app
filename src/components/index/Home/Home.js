@@ -1,8 +1,9 @@
 import { Container, Typography, Grid, Button } from "@material-ui/core";
-import React from "react";
+import React, { useContext } from "react";
 import { TopNav, Footer } from "../../components";
 import useStyles from "./styles";
 import { Link } from "@material-ui/core";
+import { TransactionContext } from "../../../context/TransactionContext";
 
      
 
@@ -14,9 +15,7 @@ import { RestoreOutlined } from "@material-ui/icons";
 const Home = () => {
     const classes = useStyles();
 
-    const connectWallet = () => {
-        
-    }
+    const { connectWallet, currentAccount, checkIfWalletIsConnected } = useContext(TransactionContext);
 
     return (
         <Container maxWidth="xl">
@@ -27,16 +26,16 @@ const Home = () => {
                         <Typography variant="h3" className={classes.introPara}>Ethereum anywhere, for anyone</Typography>
                         <Typography variant="subtitle1" className={classes.subPara}>Explore the evergrowing world of Ethereum and NFTs with Cryptonite</Typography>
 
-                        <Button
+                        {!currentAccount && ( <Button
                         onClick={connectWallet}
                         className={classes.connectButton}>
                              Connect to Metamask
-                        </Button>
+                        </Button>)}
                     </div>
             </Grid>
 
             <Grid container spacing={5} className={classes.metamask}>
-                <Grid xs={9}>
+                <Grid item xs={9}>
                     <div className={classes.aboutMetamask}>
                         <Typography variant="h4" className={classes.title}>You need to install MetaMask to use this website</Typography>
                         <Typography variant="subtitle1" className={classes.subMeta}>

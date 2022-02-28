@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React, {useState, useContext } from "react";
 import { TopNav, Footer } from "../../components";
 import {TextField, Button, Typography, Card, CardContent, Grid, Container } from "@material-ui/core";
-//import { TransactionContext } from "../../../context/TransactionContext";
+import { TransactionContext } from "../../../context/TransactionContext";
 import { shortenAddress } from "../../../utilities/shortAddress";
 
 import { SiEthereum } from "react-icons/si";
@@ -18,14 +18,39 @@ const Transaction = () => {
         type={type}
         step="0.0001"
         value={value}
-        onHandle={(event) => handle(event, name)}
+        onChange={(event) => handleChange(event, name)}
         />
     }
-    /*
-    const Status = () => {
-        const {currentAccount, connectWallet, handleChange, sendTransaction, formData, isLoading} = useContext(TransactionContext);
+    */
+    
+    const { connectWallet, CurrentAccount, formData, setFormData} = useContext(TransactionContext);
+
+    const [amount, setAmount] = useState("");
+    const [valueError, setValueError] = useState("");
+    const [address, setAddress] = useState("");
+    const [message, setMessage] = useState("");
+    const [title, setTitle] = useState("")
+    const [addressError, setAddressError] = useState(false);
+    const [titleError, setTitleError] = useState(false);
+
+    
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        if (address === '') {
+            setAddressError(true);
+        }
+        if (amount === '') { //Value with capital V is for the ETH amount
+            setValueError(true);
+        }
+        if (title === '') {
+            setTitleError(true);
+        }
+        if (address && amount && title && message) {
+            console.log(address, amount, title, message)
+        }
     }
-*/
+
+
     return (
         <Container maxWidth="xl">
             <TopNav />
@@ -38,7 +63,7 @@ const Transaction = () => {
                         </CardContent>
                         <CardContent>
                             <Typography variant="h7">
-                                shortenedAddress
+                                {shortenAddress(CurrentAccount)}
                             </Typography>
                         </CardContent> 
                         <CardContent>
@@ -46,12 +71,47 @@ const Transaction = () => {
                         </CardContent>
                     </Card>
                 </Grid>
-                <form className={classes.formWrapper}>
-                    <TextField className={classes.fill} label="Address To" name="addressTo" type="text" variant="standard" />
-                    <TextField className={classes.fill} label="Amount (ETH)" name="amount" type="number" variant="standard" />
-                    <TextField className={classes.fill} label="Transaction Title" name="title" type="text" variant="standard" />
-                    <TextField className={classes.fill} label="Message to Receiver" name="message" type="text" variant="standard" />
-                    <Button className={classes.sendTransaction} >
+                <form className={classes.formWrapper} onSubmit={handleSubmit}>
+                    <TextField
+                         className={classes.fill} 
+                         onChange={(event) => setAddress(event.target.value)} 
+                         color="secondary" 
+                         label="Address To"  
+                         name="addressTo"
+                         type="text" 
+                         variant="standard" 
+                         required
+                     />
+                    <TextField
+                        className={classes.fill} 
+                        onChange={(event) => setAmount(event.target.value)}
+                        color="secondary" 
+                        label="Amount (ETH)" 
+                        type="number" 
+                        variant="standard" 
+                        required
+                     />
+                    <TextField
+                        className={classes.fill} 
+                        onChange={(event) => setTitle(event.target.value)}
+                        color="secondary" 
+                        label="Transaction Title"
+                        type="text" 
+                        variant="standard" 
+                        required
+                    />
+                    <TextField
+                        className={classes.fill} 
+                        onChange={(event) => setMessage(event.target.value)}
+                        color="secondary"
+                        label="Message to Receiver"
+                        type="text" 
+                        variant="standard" 
+                    />
+                    <Button
+                     className={classes.sendTransaction}  
+                     type="submit"
+                     >
                         Send ETH
                     </Button>
                 </form>
