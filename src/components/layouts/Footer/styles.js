@@ -4,6 +4,7 @@ export default makeStyles((theme) => ({
     footer_wrapper: {
         position: "static",
         textAlign: "center",
+        marginTop: "10%"
     },
     image: {
         width: 300,

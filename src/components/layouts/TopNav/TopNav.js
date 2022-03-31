@@ -1,14 +1,17 @@
-import React, {useState, useEffect} from "react";
+import React, { useContext} from "react";
 import Cryptonite from "../../../assets/Cryptonite.png"
-import {AppBar, Toolbar, Button, Container, Menu, MenuItem } from "@material-ui/core"
+import {AppBar, Toolbar, Button, Container, Menu, MenuItem, Typography } from "@material-ui/core"
 import { Link } from "react-router-dom";
+import { TransactionContext } from "../../../context/TransactionContext";
+import { shortenAddress } from "../../../utilities/shortAddress";
 
 import useStyles from "./styles"
 
 const TopNav = () => {
     const classes = useStyles();
 
-    //User login functions inside the LOGIN BUTTON will be added when doing backend
+    const { connectWallet, CurrentAccount } = useContext(TransactionContext);
+
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -17,6 +20,9 @@ const TopNav = () => {
     const handleClose = () => {
       setAnchorEl(null);
     };
+    const handleSubmit = () => {
+        connectWallet();
+    }
 
     return (
         <AppBar className={classes.navbar} position="static" maxWidth="xl" >
@@ -57,10 +63,22 @@ const TopNav = () => {
                                 Marketplace
                             </MenuItem>
                         </Menu>
-
+                        
                         <div className={classes.loginButton}>
-                            <Button className={classes.button} component={Link} to="/login">Login</Button>
+                            { CurrentAccount ? (
+                                <Button className={classes.button} >
+                                    {shortenAddress(CurrentAccount)}
+                                </Button>
+                                ): 
+                                (
+                                <Button className={classes.button} onClick={handleSubmit}>Connect</Button>
+                                )
+                            }
+
+                              
                         </div>
+                        
+
                     </div>
                 </Toolbar>
                 

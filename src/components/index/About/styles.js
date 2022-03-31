@@ -1,10 +1,10 @@
 import { makeStyles } from "@material-ui/core";
-import { CenterFocusStrong } from "@material-ui/icons";
 
 export default makeStyles((theme) => ({
     author: {
         textAlign: "center",
-        marginTop: "3%"
+        marginTop: "3%",
+        
     },
     myPhoto: {
         position: "relative",

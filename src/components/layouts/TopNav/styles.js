@@ -43,7 +43,6 @@ export default makeStyles((theme) => ({
         listStyle: "none",
         fontSize: "20px",
         textAlign: "center",
-        width: 100,
         marginLeft: theme.spacing(10), 
         marginTop:7
     },

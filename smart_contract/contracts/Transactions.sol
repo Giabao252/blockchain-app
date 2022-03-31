@@ -1,4 +1,4 @@
-//SPDX-License-Identifier: Unlicense
+of//SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
 contract Transactions {
@@ -31,4 +31,4 @@ contract Transactions {
     function getTransactionCounter() public view returns (uint256) {
         return transactionCounter;
     }
-}
+}  
